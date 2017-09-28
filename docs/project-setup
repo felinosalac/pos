@@ -1,0 +1,7 @@
+Build the project.
+-------------------
+mvn clean install
+
+Run the project using the Jetty plugin.
+-------------------
+mvn -Djetty.port=8081 jetty:run;

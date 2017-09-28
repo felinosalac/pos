@@ -1,0 +1,17 @@
+*.class
+*.metadata
+*.project
+*.classpath
+*.settings
+*.mymetadata
+*.DS_Store
+target
+/bin/
+/node_modules/*
+oracle-create-all.sql
+oracle-drop-all.sql
+
+src/main/webapp/angular-app/equipmentalley/assets/test/listings.json
+/.DS_Store
+bower_components
+~                 
