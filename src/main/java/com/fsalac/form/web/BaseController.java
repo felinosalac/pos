@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.fsalac.form.model.PosUser;
 import com.fsalac.form.model.security.CustomUserDetail;
 import com.fsalac.form.service.CustomerService;
+import com.fsalac.form.service.ProductService;
 import com.fsalac.form.service.SupplierService;
 import com.fsalac.form.service.UserService;
 
@@ -26,6 +27,9 @@ public class BaseController {
 	
 	@Autowired
 	protected SupplierService supplierService;
+	
+	@Autowired
+	protected ProductService productService;
 
 	public PosUser getUserInSession() {
 		

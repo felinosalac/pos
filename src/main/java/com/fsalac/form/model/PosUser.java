@@ -127,6 +127,8 @@ public class PosUser extends ModelObject {
 	@OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
     private List<PosSupplier> posSuppliersList;
 	
+	@OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
+    private List<PosProduct> posProductsList;
 	
 	@Transient
 	private List<String> userRoles;
@@ -397,6 +399,14 @@ public class PosUser extends ModelObject {
 
 	public void setPosSuppliersList(List<PosSupplier> posSuppliersList) {
 		this.posSuppliersList = posSuppliersList;
+	}
+
+	public List<PosProduct> getPosProductsList() {
+		return posProductsList;
+	}
+
+	public void setPosProductsList(List<PosProduct> posProductsList) {
+		this.posProductsList = posProductsList;
 	}
 	
 	

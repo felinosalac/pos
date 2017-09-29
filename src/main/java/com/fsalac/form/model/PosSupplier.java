@@ -71,8 +71,8 @@ public class PosSupplier extends ModelObject {
     private String term;
     @Column(name = "discount")
     private String discount;
-    @JoinColumn(name = "created_by", referencedColumnName = "id")
    
+    @JoinColumn(name = "created_by", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private PosUser createdBy;
 
