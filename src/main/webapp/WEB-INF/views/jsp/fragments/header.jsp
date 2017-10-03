@@ -67,6 +67,7 @@
             	<li><a href="<c:url value="/admin/customers"/>">Dealers</a></li>
             	<li><a href="<c:url value="/admin/suppliers"/>">Suppliers</a></li>
             	<li><a href="<c:url value="/admin/products"/>">Products</a></li>
+            	<li><a href="<c:url value="/admin/orders"/>">Orders</a></li>
           	</ul>
         	</li>
         	<li><a href="<c:url value="/users/file"/>">Upload File</a></li>

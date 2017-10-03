@@ -260,5 +260,9 @@ public class PosCustomer extends ModelObject {
 	public void setSignature(byte[] signature) {
 		this.signature = signature;
 	}
+	
+	public String getFullName(){
+		return this.getFirstName() + " " + this.getLastName();
+	}
     
 }

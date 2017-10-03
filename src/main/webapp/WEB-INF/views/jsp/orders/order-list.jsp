@@ -24,8 +24,8 @@
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>product ID</th>
-					<th>Name</th>
+					<th>ID</th>
+					<th>TBA</th>
 					<!-- <th>Address</th>
 					<th>Contact Person</th>
 					<th>Phone #</th>
@@ -37,7 +37,7 @@
 			<form id="searchForm" class="form-horizontal" method="GET" action="${searchUrl}">
 			<tr id="searchRow" >
 				<td><input name='id' id='id' type="text" class="form-control" placeholder="Customer Id" value="${id}"></td>
-				<td><input name='productName'  id='productName' type="text" class="form-control" placeholder="Product Name"  value="${productName}"></td>
+				<td><input name='productName'  id='productName' type="text" class="form-control" placeholder="TBA"  value="${productName}"></td>
 				<%-- <td><input name='address' id='address'type="text" class="form-control" placeholder="Address" value="${address}"></td>
 				<td><input name='contactPersonName'  id='contactPersonName' type="text" class="form-control" placeholder="Contact Person" value="${contactPersonName}"></td>
 				<td><input name='phonePrimary' id='phonePrimary' type="number" class="form-control" placeholder="Phone" value="${phonePrimary}"></td>
@@ -56,10 +56,10 @@
 				</td>
 			</tr>
 			</form>
-			<c:forEach var="product" items="${products}">
+			<c:forEach var="order" items="${orders}">
 				<tr>
-					<td>${product.id}</td>
-					<td>${product.productName}</td>
+					<td>${order.id}</td>
+					<td>TBA</td>
 					<%-- <td>${product.address}</td>
 					<td>${product.contactPersonName}</td>
 					<td>${product.phonePrimary}</td>
@@ -84,8 +84,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<spring:url value="/admin/orders/add" var="addOrderUrl"/>
-		<button type="button" class="btn" onclick="location.href='${addOrderUrl}'">Add Order</button>
+		<spring:url value="/admin/orders/add" var="urlAddproduct" />
+		<button type="button" class="btn" onclick="location.href='${urlAddproduct}'">Add Order</button>
 	</div>
 	<script>
 	function search(){

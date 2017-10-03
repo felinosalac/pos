@@ -1,6 +1,5 @@
 package com.fsalac.form.web;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.fsalac.form.model.PosCustomer;
 import com.fsalac.form.model.PosProduct;
 import com.fsalac.form.model.PosSupplier;
-import com.fsalac.form.web.model.CustomerFormModel;
 import com.fsalac.form.web.model.ProductFormModel;
 
 @Controller

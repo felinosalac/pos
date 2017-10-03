@@ -1,7 +1,9 @@
 package com.fsalac.form.model;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -74,6 +77,9 @@ public class PosProduct extends ModelObject {
     @JoinColumn(name = "supplier_id", referencedColumnName = "created_by")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private PosSupplier supplierId;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", fetch = FetchType.LAZY)
+    private List<PosOrder> posOrderList;
 
     public PosProduct() {
     }
@@ -213,5 +219,13 @@ public class PosProduct extends ModelObject {
         }
         return true;
     }
+
+	public List<PosOrder> getPosOrderList() {
+		return posOrderList;
+	}
+
+	public void setPosOrderList(List<PosOrder> posOrderList) {
+		this.posOrderList = posOrderList;
+	}
 
 }
