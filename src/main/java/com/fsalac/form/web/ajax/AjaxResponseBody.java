@@ -3,6 +3,7 @@ package com.fsalac.form.web.ajax;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fsalac.form.model.dto.PosOrderDTO;
 
 public class AjaxResponseBody {
 
@@ -14,6 +15,9 @@ public class AjaxResponseBody {
 
 	@JsonView(Views.Public.class)
 	private List<User> result;
+	
+	@JsonView(Views.Public.class)
+	private List<PosOrderDTO> orders;
 
 	public String getMsg() {
 		return msg;
@@ -38,6 +42,15 @@ public class AjaxResponseBody {
 	public void setResult(List<User> result) {
 		this.result = result;
 	}
+
+	public List<PosOrderDTO> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<PosOrderDTO> orders) {
+		this.orders = orders;
+	}
+
 
 	//getters and setters
 }

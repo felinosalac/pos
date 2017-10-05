@@ -5,7 +5,7 @@
     <div class="modal-content">
         <div class="modal-body">
             <%-- <img src="<c:url value="/image/customers/${customer.id}/1"/>" class="img-responsive"> --%>
-            Customer Modal!
+            Product Modal!
             <table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -36,7 +36,7 @@
 					<td>${product.productName}</td>
 					<td>
 						<%-- <spring:url value="/admin/products/${supplier.id}" var="productUrl" /> --%>
-						<button class="btn btn-info" onclick="location.href='${productUrl}'">Select</button>
+						<button class="btn btn-info" onclick="addOrder('${product.id}',1)">Select</button>
 					</td>
 				</tr>
 			</c:forEach>
@@ -46,3 +46,38 @@
     </div>
   </div>
 </div>
+
+<script>
+function addOrder(productId, customerId){
+	//alert(customerId + ' order will be added! ' + productId);
+	//alert("add/" + productId + "/" + customerId + "?_csrf=${_csrf.token}");
+	$.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "add/" + productId + "/" + customerId + "?_csrf=${_csrf.token}",
+		timeout : 100000,
+		success : function(data) {
+			console.log("SUCCESS: ", data);
+			/* $('#confirmDelete').modal('hide');
+			$('#deleteConfirmationModal').modal('toggle'); */
+			
+			/* what  i have to put here to updte my table <table id="table_grid"> */
+			/* $.each(data.orders,function(key, order) {
+	            var htmlrow ="<tr><td>" + order.id + "</td><td>" + order.productName + "</td><td>button</td></tr>";         
+	            $('#ordersTable').append(htmlrow);
+	        }); */
+	        
+			window.location.reload(true);
+		},
+		error : function(e) {
+			console.log("ERROR: ", e);
+			alert(e);
+		}
+	}).done(function(e) {
+		console.log("DONE");
+	});
+	
+	
+	$('#productModal').modal('toggle');
+}
+</script>

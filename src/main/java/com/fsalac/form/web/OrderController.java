@@ -1,29 +1,26 @@
 package com.fsalac.form.web;
 
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fsalac.form.model.PosCustomer;
 import com.fsalac.form.model.PosOrder;
 import com.fsalac.form.model.PosProduct;
-import com.fsalac.form.model.PosSupplier;
 import com.fsalac.form.model.dto.PosCustomerDTO;
 import com.fsalac.form.model.dto.PosOrderDTO;
 import com.fsalac.form.model.dto.PosProductDTO;
+import com.fsalac.form.web.ajax.AjaxResponseBody;
+import com.fsalac.form.web.ajax.Views;
 import com.fsalac.form.web.model.OrderFormModel;
 import com.fsalac.form.web.model.ProductFormModel;
 
@@ -37,6 +34,29 @@ public class OrderController extends BaseController{
 		logger.debug("showAllOrders()");
 		model.addAttribute("orders", orderService.findAll());
 		return "orders/order-list";
+	}
+	
+	// delete user
+	@JsonView(Views.Public.class)
+	@RequestMapping(value = "admin/orders/add/{productId}/{customerId}", method = RequestMethod.POST)
+	@ResponseBody
+	public AjaxResponseBody addOrder(@PathVariable("productId") long productId,
+			@PathVariable("customerId") long customerId) {
+
+		AjaxResponseBody result = new AjaxResponseBody();
+		result.setCode("200");
+		result.setMsg("Deleted!");
+		
+		
+		PosCustomer customer = customerService.findById(customerId);
+		PosProduct product = productService.findById(productId);
+		
+		PosOrder order = new PosOrder();
+		order.setCustomer(customer);
+		order.setProduct(product);
+		orderService.saveOrUpdate(order);
+		
+		return result;
 	}
 	
 	@RequestMapping(value = "admin/orders/add", method = RequestMethod.GET)

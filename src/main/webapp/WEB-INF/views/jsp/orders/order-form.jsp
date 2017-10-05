@@ -31,10 +31,11 @@
 		</spring:bind>
 		
 		<!-- Orders -->
-		<table class="table table-striped table-hover">
+		<table class="table table-striped table-hover" id="ordersTable">
 			<c:forEach var="order" items="${orders}">
 				<tr>
 					<td>${order.id}</td>
+					<td>${order.productName}</td>
 					<td>${order.productName}</td>
 					<td>
 						<%-- <spring:url value="/admin/products/${supplier.id}" var="productUrl" /> --%>

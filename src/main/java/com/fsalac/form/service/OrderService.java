@@ -9,7 +9,7 @@ public interface OrderService {
 	
 	List<PosOrder> findAll();
 	
-	void saveOrUpdate(PosOrder customer);
+	void saveOrUpdate(PosOrder order);
 	
 	PosOrder findById(Long id);
 	
