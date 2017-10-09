@@ -51,52 +51,45 @@
 		</div>
 		
 	
+	<div class="jumbotron">
 	<!-- Grid -->
 	<!-- row 1 -->
 	<div class="row" style="text-align:center;">
-		<div class="col-lg-4"  style="background-color:lavender;">
-			<h2>STORE</h2>
-			<p><a class="btn btn-lg btn-warning" href="Store.html" role="button">Store</a></p>
+		<div class="col-lg-6"  style="background-color:lavender;">
+			<!-- <h2>Product List</h2> -->
+			<p><a class="btn btn-lg btn-warning" href="Store.html" role="button">Product List</a></p>
 		</div>
-		<div class="col-lg-4" style="background-color:lavenderblush;">
-			<h2>PRODUCT</h2>
-			<p><a class="btn btn-lg btn-primary" href="#" role="button">Product</a></p>
-		</div>
-		<div class="col-lg-4"  style="background-color:lavender;">
-			<h2>SUPPORT</h2>
-			<p><a class="btn btn-lg btn-success" href="#" role="button">Support</a></p>
+		<div class="col-lg-6" style="background-color:lavenderblush;">
+			<p><a class="btn btn-lg btn-primary" href="#" role="button">Suppliers</a></p>
 		</div>
 	</div>
 	<!-- row 2 -->
 	<div class="row" style="text-align:center;">
-		<div class="col-lg-4"  style="background-color:lavenderblush;">
-			<h2>CUSTOMER</h2>
-			<p><a class="btn btn-lg btn-info" href="#" role="button">Customers</a></p>
+		<div class="col-lg-6"  style="background-color:lavenderblush;">
+			<p><a class="btn btn-lg btn-info" href="<c:url value="/admin/customers"/>" role="button">Customers</a></p>
 		</div>
-		<div class="col-lg-4" style="background-color:lavender;">
-			<h2>ORDERS</h2>
-			<p><a class="btn btn-lg btn-warning" href="#" role="button">Orders</a></p>
-		</div>
-		<div class="col-lg-4"  style="background-color:lavenderblush;">
-			<h2>INVENTORY</h2>
-			<p><a class="btn btn-lg btn-danger" href="#" role="button">Inventory</a></p>
+		<div class="col-lg-6" style="background-color:lavender;">
+			<p><a class="btn btn-lg btn-warning" href="#" role="button">Payment</a></p>
 		</div>
 	</div>
 	<!-- row 3 -->
 	<div class="row" style="text-align:center;">
-		<div class="col-lg-4" style="background-color:lavender;">
-			<h2>PAYMENT</h2>
-			<p><a class="btn btn-lg btn-danger" href="#" role="button">Payments</a></p>
+		<div class="col-lg-6" style="background-color:lavender;">
+			<p><a class="btn btn-lg btn-danger" href="#" role="button">Orders</a></p>
 		</div>
-		<div class="col-lg-4" style="background-color:lavenderblush;">
-			<h2>ROC</h2>
+		<div class="col-lg-6" style="background-color:lavenderblush;">
 			<p><a class="btn btn-lg btn-primary" href="#" role="button">Return From Customers</a></p>
 		</div>
-		<div class="col-lg-4" style="background-color:lavender;">
-			<h2>INVOICE</h2>
-			<p><a class="btn btn-lg btn-success" href="#" role="button">Invoice</a></p>
+	</div>
+	<!-- row 4 -->
+	<div class="row" style="text-align:center;">
+		<div class="col-lg-6" style="background-color:lavenderblush;">
+			<p><a class="btn btn-lg btn-danger" href="#" role="button">Inventory</a></p>
 		</div>
+		<div class="col-lg-6" style="background-color:lavender;">
+			<p><a class="btn btn-lg btn-primary" href="#" role="button">Invoice</a></p>
 		</div>
+	</div>
 	</div>
 	<jsp:include page="fragments/footer.jsp" />
 </body>

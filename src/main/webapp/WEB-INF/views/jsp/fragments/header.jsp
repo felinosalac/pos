@@ -64,7 +64,7 @@
           		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Accounts<span class="caret"></span></a>
           	<ul class="dropdown-menu">
             	<li><a href="<c:url value="/admin/users"/>">Users</a></li>
-            	<li><a href="<c:url value="/admin/customers"/>">Dealers</a></li>
+            	<li><a href="<c:url value="/admin/customers"/>">Customer</a></li>
             	<li><a href="<c:url value="/admin/suppliers"/>">Suppliers</a></li>
             	<li><a href="<c:url value="/admin/products"/>">Products</a></li>
             	<li><a href="<c:url value="/admin/orders"/>">Orders</a></li>
