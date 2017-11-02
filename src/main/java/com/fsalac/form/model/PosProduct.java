@@ -74,8 +74,8 @@ public class PosProduct extends ModelObject {
     @Column(name = "deleted", columnDefinition = "BIT", length = 1)
     private boolean deleted;
     
-    @JoinColumn(name = "supplier_id", referencedColumnName = "created_by")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplier_id", referencedColumnName = "id")
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private PosSupplier supplierId;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", fetch = FetchType.LAZY)

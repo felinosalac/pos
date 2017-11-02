@@ -84,8 +84,9 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<spring:url value="/admin/orders/add" var="addOrderUrl"/>
-		<button type="button" class="btn" onclick="location.href='${addOrderUrl}'">Add Order</button>
+		<%-- <spring:url value="/admin/orders/add" var="addOrderUrl"/> --%>
+		<spring:url value="/admin/products/add" var="addProductUrl" />
+		<button type="button" class="btn" onclick="location.href='${addProductUrl}'">Add Product</button>
 	</div>
 	<script>
 	function search(){

@@ -34,6 +34,26 @@
 		<div class="col-sm-10">${product.productName}</div>
 	</div>
 	
+	<div class="row">
+		<label class="col-sm-2">Supplier Name</label>
+		<div class="col-sm-10">${supplierName.name}</div>
+	</div>
+	
+	<div class="row">
+		<label class="col-sm-2">Color</label>
+		<div class="col-sm-10">${product.color}</div>
+	</div>
+	
+	<div class="row">
+		<label class="col-sm-2">Size</label>
+		<div class="col-sm-10">${product.size}</div>
+	</div>
+	
+	<div class="row">
+		<label class="col-sm-2">Catalog Price</label>
+		<div class="col-sm-10">${product.catalogPrice}</div>
+	</div>
+	
 	<%-- <div class="row">
 		<label class="col-sm-2">Last Name</label>
 		<div class="col-sm-10">${customer.lastName}</div>

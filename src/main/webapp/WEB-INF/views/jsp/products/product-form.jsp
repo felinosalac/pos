@@ -45,7 +45,10 @@
 				<label class="col-sm-2 control-label">Supplier</label>
 				<div class="col-sm-5">
 					<form:select path="supplier" class="form-control" multiple="false">
-						<form:option value="-" label="--Please Select--"/>
+						<%-- <form:option value="-" label="--Please Select--"/> --%>
+						<c:if test="${!product['new']}">
+							<form:option value="${supplier.id}" label="${supplier.name}"/>
+						</c:if>
 						<form:options items="${suppliers}" itemValue="id" itemLabel="name"/>
 					</form:select>
 					<form:errors path="supplier" class="control-label" />
@@ -54,56 +57,36 @@
 			</div>
 		</spring:bind>
 		
-		<%-- <spring:bind path="address">
+		<spring:bind path="color">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Address</label>
+				<label class="col-sm-2 control-label">Color</label>
 				<div class="col-sm-10">
-					<form:textarea path="address" class="form-control " id="address" placeholder="Address" required="required"/>
-					<form:errors path="address" class="control-label" />
+					<form:input path="color" type="text" class="form-control " id="color" placeholder="Color" required="required"/>
+					<form:errors path="color" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
 		
-		<spring:bind path="contactPersonName">
+		<spring:bind path="size">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Contact Person Name</label>
+				<label class="col-sm-2 control-label">Size</label>
 				<div class="col-sm-10">
-					<form:input path="contactPersonName" type="text" class="form-control " id="contactPersonName" placeholder="Contact Person Name" required="required"/>
-					<form:errors path="contactPersonName" class="control-label" />
+					<form:input path="size" type="text" class="form-control " id="size" placeholder="Size" required="required"/>
+					<form:errors path="size" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
 		
-		<spring:bind path="phonePrimary">
+		<spring:bind path="catalogPrice">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Phone Number</label>
+				<label class="col-sm-2 control-label">Catalog Price</label>
 				<div class="col-sm-10">
-					<form:input path="phonePrimary" type="text" class="form-control " id="phonePrimary" placeholder="Phone Number" required="required"/>
-					<form:errors path="phonePrimary" class="control-label" />
+					<form:input path="catalogPrice" type="text" class="form-control " id="catalogPrice" placeholder="Catalog Price" required="required"/>
+					<form:errors path="catalogPrice" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
 		
-		<spring:bind path="fax">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Fax</label>
-				<div class="col-sm-10">
-					<form:input path="fax" type="text" class="form-control " id="fax" placeholder="Fax" required="required"/>
-					<form:errors path="fax" class="control-label" />
-				</div>
-			</div>
-		</spring:bind>
-		
-		<spring:bind path="discount">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Discount</label>
-				<div class="col-sm-10">
-					<form:input path="discount" type="text" class="form-control " id="discount" placeholder="Discount" required="required"/>
-					<form:errors path="discount" class="control-label" />
-				</div>
-			</div>
-		</spring:bind>
-		 --%>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<c:choose>

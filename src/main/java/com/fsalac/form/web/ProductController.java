@@ -1,5 +1,6 @@
 package com.fsalac.form.web;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -86,12 +87,13 @@ public class ProductController extends BaseController{
 		}
 		ProductFormModel productFormModel = convertToFormModel(posProduct);
 		model.addAttribute("product", productFormModel);
+		model.addAttribute("supplierName", posProduct.getSupplierId());
 		return "products/product-details";
 	}
 	
 	// show update form
 	@RequestMapping(value = "admin/products/{id}/update", method = RequestMethod.GET)
-	public String showUpdateProductForm(@PathVariable("id") long id, Model model) {
+	public String showUpdateProductForm(@PathVariable("id") Long id, Model model) {
 		logger.debug("showUpdateProductForm() : {}", id);
 		PosProduct posProduct = productService.findById(id);
 		
@@ -105,43 +107,72 @@ public class ProductController extends BaseController{
 		//set the suppliers object that will be used in select element
 		List<PosSupplier> suppliers = supplierService.findAll();
 		model.addAttribute("suppliers", suppliers);
-		
-		model.addAttribute("suppliers", suppliers);
 		model.addAttribute("product", productFormModel);
+		
+		PosSupplier supplier = posProduct.getSupplierId();
+		if (posProduct != null) {
+			supplier.setName(supplier.getName() + " (selected)");
+		}
+		model.addAttribute("supplier", supplier);
 
 		return "products/product-form";
 
+	}
+	
+	private PosSupplier getSupplier(Long supplierId, List<PosSupplier> suppliers){
+		PosSupplier posSupplier = null;
+		
+		for (PosSupplier supplier : suppliers) {
+			if(supplierId == supplier.getId()){
+				posSupplier = supplier;
+			}
+		}
+		return posSupplier;
 	}
 	
 	private PosProduct convertToDatabaseModel(ProductFormModel productFormModel){
 		
 		//convert
 		PosProduct posProduct = new PosProduct();
+		boolean isNew = false;
 		
 		if(!StringUtils.isEmpty(productFormModel.getId())){
 			Long id = Long.valueOf(productFormModel.getId());
 			posProduct = productService.findById(id);
 		}else{
 			posProduct.setActive(true);
+			isNew = true;
 		}
 		
 		posProduct.setProductName(productFormModel.getProductName());
 		posProduct.setSupplierId(supplierService.findById(Long.valueOf(productFormModel.getSupplier())));
+		posProduct.setColor(productFormModel.getColor());
+		posProduct.setSize(productFormModel.getSize());
+		posProduct.setCatalogPrice(productFormModel.getCatalogPrice());
 		
 		//set more fields
+		if(isNew){
+			posProduct.setDateCreated(new Date(System.currentTimeMillis()));
+		}else{
+			posProduct.setDateUpdated(new Date(System.currentTimeMillis()));
+		}
 		
 		return posProduct;
 	}
 	
-	public static ProductFormModel convertToFormModel(PosProduct PosProduct){
+	public static ProductFormModel convertToFormModel(PosProduct posProduct){
 		
 		//convert
-		ProductFormModel ProductFormModel = new ProductFormModel();
-		ProductFormModel.setId(PosProduct.getId() + "");
-		ProductFormModel.setProductName(PosProduct.getProductName());
+		ProductFormModel productFormModel = new ProductFormModel();
+		productFormModel.setId(posProduct.getId() + "");
+		productFormModel.setProductName(posProduct.getProductName());
+		productFormModel.setColor(posProduct.getColor());
+		productFormModel.setSize(posProduct.getSize());
+		productFormModel.setCatalogPrice(posProduct.getCatalogPrice());
+		
 		// set more fields
 		
-		return ProductFormModel;
+		return productFormModel;
 	}
 	
 	private void populateDefaultModel(Model model) {
