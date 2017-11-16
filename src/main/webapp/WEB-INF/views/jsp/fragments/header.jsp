@@ -8,6 +8,9 @@
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
 <spring:url value="/resources/core/css/jquery-ui.min.css" var="jqueryUICss" />
+<spring:url value="/resources/core/css/font-awesome.min.css" var="fontAwesomeCss" />
+<spring:url value="/resources/core/css/card.flip.css" var="cardFlipCss" />
+
 
 <spring:url value="/resources/core/icons/favicon.ico" var="favicon" />
 
@@ -20,6 +23,8 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 <link href="${jqueryUICss}" rel="stylesheet" />
+<link href="${fontAwesomeCss}" rel="stylesheet" />
+<link href="${cardFlipCss}" rel="stylesheet" />
 
 <link rel="shortcut icon" href="${favicon}"/>
 
